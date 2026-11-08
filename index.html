@@ -31,12 +31,13 @@ a{color:#111}a:hover{color:#000}
 .pad{padding-top:clamp(48px,7vw,112px);padding-bottom:clamp(48px,7vw,112px);display:flex;flex-direction:column;justify-content:center;gap:20px}
 .sec{padding-top:clamp(56px,8vw,120px);padding-bottom:clamp(56px,8vw,120px)}
 .navl{color:#fff;text-decoration:none;font-size:15px}
+.logo{display:block;background:#fff;-webkit-mask:url(LIEBRE.png) center/contain no-repeat;mask:url(LIEBRE.png) center/contain no-repeat;-webkit-mask-mode:luminance;mask-mode:luminance}
 </style>
 </head>
 <body>
 <div style="font-family:Archivo,sans-serif;color:#111;background:#fff">
 <header class="wrap" style="display:flex;justify-content:space-between;align-items:center;padding-top:20px;padding-bottom:20px;gap:16px;flex-wrap:wrap;position:absolute;left:0;right:0;z-index:2">
-<img src="LIEBRE.png" alt="Liebre" style="mix-blend-mode:screen;height:40px;width:auto;display:block">
+<span role="img" aria-label="Liebre" class="logo" style="height:44px;width:55px"></span>
 <nav aria-label="Principal" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
 <a class="navl" href="#como">Cómo funciona</a>
 <a class="navl" href="#vender">Vender</a>
@@ -140,7 +141,7 @@ a{color:#111}a:hover{color:#000}
 </div>
 </section>
 <footer class="wrap" style="background:#111;color:#fff;padding-top:32px;padding-bottom:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px">
-<img src="LIEBRE.png" alt="Liebre" style="mix-blend-mode:screen;height:32px;width:auto;display:block">
+<span role="img" aria-label="Liebre" class="logo" style="height:36px;width:45px"></span>
 <span style="color:#bdbdbd">Liebre es un servicio entre corredores. No somos la organización de ninguna carrera.</span>
 </footer>
 </div>
