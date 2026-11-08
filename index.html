@@ -35,10 +35,6 @@ a{color:#111}a:hover{color:#000}
 html{scroll-padding-top:80px}
 @media (max-width:700px){
 header{flex-wrap:nowrap!important;padding-top:10px!important;padding-bottom:10px!important}
-header .logo{height:36px!important;width:45px!important}
-header nav{gap:0!important;flex-wrap:nowrap!important}
-header .navl{display:none!important}
-header .btn{height:40px!important;font-size:14px!important;padding:0 14px!important}
 section[style*="min-height:760px"]{min-height:92svh!important}
 section[style*="min-height:760px"] img.cover{object-position:65% center!important}
 section[style*="min-height:760px"]>div:last-child{padding-bottom:40px!important;gap:18px!important}
@@ -56,6 +52,22 @@ section[style*="min-height:620px"],section[style*="min-height:720px"]{min-height
 .btn{height:52px!important}
 footer{flex-direction:column;align-items:flex-start!important}
 }
+.burger,.mmenu{display:none}
+@media (max-width:700px){
+header nav{display:none!important}
+header .logo{height:36px!important;width:45px!important}
+.burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:44px;background:#E6FF00;border:0;padding:0;cursor:pointer}
+.burger i{display:block;width:20px;height:3px;background:#111;transition:transform .2s,opacity .2s}
+.menu-open .burger i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-open .burger i:nth-child(2){opacity:0}
+.menu-open .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mmenu{position:fixed;inset:64px 0 0 0;z-index:9;background:#111;padding:24px 16px 32px;flex-direction:column;gap:10px;overflow:auto}
+.menu-open .mmenu{display:flex}
+.menu-open{overflow:hidden}
+.mmenu a.sq-link{display:flex;justify-content:space-between;align-items:center;border:2px solid #fff;color:#fff;text-decoration:none;font-family:'Archivo Black',sans-serif;font-size:26px;text-transform:uppercase;padding:18px 16px}
+.mmenu a.sq-link::after{content:"";width:14px;height:14px;background:#E6FF00}
+.mmenu .btn{justify-content:center;margin-top:8px}
+}
 </style>
 </head>
 <body>
@@ -68,7 +80,15 @@ footer{flex-direction:column;align-items:flex-start!important}
 <a class="navl" href="#faq">Preguntas</a>
 <a class="btn lime" href="#" style="font-size:15px;height:44px;padding:0 18px">Busco dorsal</a>
 </nav>
+<button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mmenu"><i></i><i></i><i></i></button>
 </header>
+<div class="mmenu" id="mmenu">
+<a class="sq-link" href="#como">Cómo funciona</a>
+<a class="sq-link" href="#vender">Vender</a>
+<a class="sq-link" href="#faq">Preguntas</a>
+<a class="btn lime" href="#">Busco dorsal</a>
+<a class="btn" href="#vender" style="border:2px solid #fff;color:#fff">Vendo mi dorsal</a>
+</div>
 <section style="position:relative;min-height:760px;display:flex;align-items:flex-end;overflow:hidden;background:#111">
 <img class="cover" src="https://unsplash.com/photos/J4XpGYk_o9k/download?w=2400" alt="Grupo de corredores por una calle de noche" style="object-position:center 40%">
 <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.05) 60%)"></div>
@@ -169,5 +189,12 @@ footer{flex-direction:column;align-items:flex-start!important}
 <span style="color:#bdbdbd">Liebre es un servicio entre corredores. No somos la organización de ninguna carrera. Fotos: Unsplash.</span>
 </footer>
 </div>
+<script>
+(function(){var b=document.querySelector('.burger'),r=document.documentElement;
+function set(o){r.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');}
+b.addEventListener('click',function(){set(!r.classList.contains('menu-open'))});
+document.querySelectorAll('.mmenu a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});})();
+</script>
 </body>
 </html>
